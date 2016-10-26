@@ -6,6 +6,8 @@
 
 package quicksortpractice;
 
+import java.util.Random;
+
 /**
  *
  * @author DaTho7561
@@ -17,7 +19,14 @@ public class QuicksortPractice {
      */
     public static void main(String[] args) {
         
-        IntegerList il = new IntegerList(new int[]{4,2,4});
+        int[] toAdd = new int[100];
+        Random rng = new Random();
+        
+        for(int i:toAdd) {
+            i = rng.nextInt(1000000);
+        }
+        
+        IntegerList il = new IntegerList(toAdd);
         
         System.out.println(il.toString());
         

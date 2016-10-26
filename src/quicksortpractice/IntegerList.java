@@ -16,6 +16,9 @@ public class IntegerList {
     
     public IntegerList(int[] array) {
         
+        list = new int[array.length];
+        
+        System.arraycopy(array, 0, list, 0, array.length);
     }
     
     public int get(int index) {
@@ -27,23 +30,24 @@ public class IntegerList {
     }
     
     public void sort() {
-        
+        list = bSort(list);
     }
     
     public int[] bSort(int[] array) {
         
-        int toSwap = -1;
+        int toSwap = checkSorted(array);
+        if (-1==toSwap) return array;
+        swap(array, toSwap, toSwap + 1);
         
-        if (-1==checkSorted(array)=) return array;
+        return bSort(array);
         
-        int lastOutOfOrder = -1;
-        
-        for (int i = 0; i < array.length; i++) {
-            
-        }
-        
-        return array;
-        
+    }
+    
+    private void swap(int[] array, int index1, int index2) {
+        int value1 = array[index1];
+        int value2 = array[index2];
+        array[index1] = value2;
+        array[index2] = value1;
     }
     
     private int checkSorted(int[] array) {
@@ -54,6 +58,21 @@ public class IntegerList {
             if (array[i] > array[i+1]) index = i;
         }
         return index;
+    }
+    
+    @Override
+    public String toString() {
+        
+        String strRep = "{";
+        
+        for (int i = 0; i < list.length; i++) {
+            strRep += " " + list[i] + ",";
+        }
+        
+        strRep += "}";
+        
+        return strRep;
+        
     }
     
 }
