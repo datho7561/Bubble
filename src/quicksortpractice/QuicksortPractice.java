@@ -22,8 +22,8 @@ public class QuicksortPractice {
         int[] toAdd = new int[100];
         Random rng = new Random();
         
-        for(int i:toAdd) {
-            i = rng.nextInt(1000000);
+        for(int i = 0; i < toAdd.length; i++) {
+            toAdd[i] = rng.nextInt(1000000);
         }
         
         IntegerList il = new IntegerList(toAdd);
